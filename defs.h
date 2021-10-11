@@ -121,6 +121,8 @@ int             wait(void);
 void            wakeup(void*);
 void            yield(void);
 void            greeting(void);
+void            exitStatus(int);  //TODO: This may cause an error cause idk what this is supposed to look like
+int             waitStat(int*);
 
 // swtch.S
 void            swtch(struct context**, struct context*);

@@ -95,3 +95,18 @@ sys_greeting(void) {
   greeting();
   return 0;
 }
+
+int
+sys_exitStatus(void) { //TODO: Yeah not too sure about this either
+  int status;
+  argint(0, &status);
+  exitStatus(status);  
+  return 0;
+}
+
+int 
+sys_waitStat(void) {
+  int* status;
+  argptr(0, (void*)&status, sizeof(*status));
+  return waitStat(status);
+}
