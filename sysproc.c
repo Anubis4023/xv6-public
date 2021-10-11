@@ -110,3 +110,14 @@ sys_waitStat(void) {
   argptr(0, (void*)&status, sizeof(*status));
   return waitStat(status);
 }
+
+int
+sys_waitpid(void) {
+  int pid;
+  int* status;
+  int option;
+  argint(0, &pid);
+  argptr(1, (void*)&status, sizeof(*status));
+  argint(2, &option);
+  return waitpid(pid, status, option);
+}

@@ -14,9 +14,9 @@ int main(int argc, char *argv[])
   
   if (atoi(argv[1]) == 1)
 	exitWait(); 
-  /*else if (atoi(argv[1]) == 2)
+  else if (atoi(argv[1]) == 2)
 	waitPid();
-  else if (atoi(argv[1]) == 3)
+  /*else if (atoi(argv[1]) == 3)
 	CELEBW02(); */
   else 
    printf(1, "\ntype \"lab1 1\" to test exit and wait, \"lab1 2\" to test waitpid and \"lab1 3\" to test the extra credit WNOHANG option \n");
@@ -38,8 +38,8 @@ int exitWait(void) {
     if (pid == 0) { // only the child executed this code
       if (i == 0)
       {
-      printf(1, "\nThis is child with PID# %d and I will exit with status %d\n", getpid(), 0);
-      exitStatus(0);
+      printf(1, "\nThis is child with PID# %d and I will exit with status %d\n", getpid(), 8);
+      exitStatus(8);
   }
       else
       {
@@ -57,7 +57,7 @@ int exitWait(void) {
   }
   return 0;
 }
-/*
+
 int waitPid(void){
 	
   int ret_pid, exit_status;
@@ -78,31 +78,31 @@ int waitPid(void){
       sleep(5);
       printf(1, "\n This is the parent: Now waiting for child with PID# %d\n",pid_a[3]);
       ret_pid = waitpid(pid_a[3], &exit_status, 0);
-      printf(1, "\n This is the partent: Child# %d has exited with status %d\n",ret_pid, exit_status);
+      printf(1, "\n This is the parent: Child# %d has exited with status %d\n",ret_pid, exit_status);
       sleep(5);
       printf(1, "\n This is the parent: Now waiting for child with PID# %d\n",pid_a[1]);
       ret_pid = waitpid(pid_a[1], &exit_status, 0);
-      printf(1, "\n This is the partent: Child# %d has exited with status %d\n",ret_pid, exit_status);
+      printf(1, "\n This is the parent: Child# %d has exited with status %d\n",ret_pid, exit_status);
       sleep(5);
       printf(1, "\n This is the parent: Now waiting for child with PID# %d\n",pid_a[2]);
       ret_pid = waitpid(pid_a[2], &exit_status, 0);
-      printf(1, "\n This is the partent: Child# %d has exited with status %d\n",ret_pid, exit_status);
+      printf(1, "\n This is the parent: Child# %d has exited with status %d\n",ret_pid, exit_status);
       sleep(5);
       printf(1, "\n This is the parent: Now waiting for child with PID# %d\n",pid_a[0]);
       ret_pid = waitpid(pid_a[0], &exit_status, 0);
-      printf(1, "\n This is the partent: Child# %d has exited with status %d\n",ret_pid, exit_status);
+      printf(1, "\n This is the parent: Child# %d has exited with status %d\n",ret_pid, exit_status);
       sleep(5);
       printf(1, "\n This is the parent: Now waiting for child with PID# %d\n",pid_a[4]);
       ret_pid = waitpid(pid_a[4], &exit_status, 0);
-      printf(1, "\n This is the partent: Child# %d has exited with status %d\n",ret_pid, exit_status);
+      printf(1, "\n This is the parent: Child# %d has exited with status %d\n",ret_pid, exit_status);
       
       ret_pid = waitpid(9999, &exit_status, 0);
-      printf(1, "\n This is the partent: Child# 9999 has ret code %d\n",ret_pid);
+      printf(1, "\n This is the parent: Child# 9999 has ret code %d\n",ret_pid);
       
       return 0;
   }
 
-int CELEBW02(void){
+/*int CELEBW02(void){
 	
  printf(1, "\n  Part e) the waitpid option WNOHANG, test program CELEBW02 \n");
 
