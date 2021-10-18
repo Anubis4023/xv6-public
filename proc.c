@@ -440,6 +440,9 @@ waitpid(int pid, int *status, int options)
           *status = p->status;
         }
         return pidLocal;
+      } else if (options == 1 && (p->pid == pid)) {
+        release(&ptable.lock); //Not sure why this is needed, but through trail and error I found that the WNHONG option will break without this
+        return 0;
       }
     }
 
